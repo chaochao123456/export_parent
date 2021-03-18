@@ -40,6 +40,7 @@
                     <tr>
                         <th class="sorting">序号</th>
                         <th class="sorting">用户名</th>
+                        <th class="sorting">时间</th>
                         <th class="sorting">ip</th>
                         <th class="sorting">方法</th>
                     </tr>
@@ -49,6 +50,8 @@
                         <tr>
                             <td>${st.count }</td>
                             <td>${log.userName }</td>
+                            <%--<td><fmt:formatDate value="${log.time}" pattern="yyyy-MM-dd"/></td>--%>
+                            <td>${log.time }</td>
                             <td>${log.ip}</td>
                             <td>${log.action}</td>
                         </tr>

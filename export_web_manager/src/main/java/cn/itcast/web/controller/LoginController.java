@@ -68,7 +68,7 @@ public class LoginController extends BaseController{
         }catch (Exception e){
             // 失败：到登录页面显示错误信息
             request.setAttribute("error","用户名或者密码错误");
-            return "forward:login.jsp";
+            return "login";
         }
         return "home/main";
     }

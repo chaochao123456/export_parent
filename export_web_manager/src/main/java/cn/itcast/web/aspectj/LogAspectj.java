@@ -40,7 +40,6 @@ public class LogAspectj {
 
           // 对日志表插入数据
           SysLog sysLog = new SysLog();
-          // 添加信息
           sysLog.setAction(annotation.name());
           sysLog.setMethod(method.getName());
           sysLog.setId(UUID.randomUUID().toString().replace("-",""));
