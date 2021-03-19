@@ -26,12 +26,12 @@ public class ContractProductServiceImpl implements ContractProductService {
 
     @Override
     public void update(ContractProduct contractProduct) {
-
+        contractProductDao.updateByPrimaryKeySelective(contractProduct);
     }
 
     @Override
     public void delete(String id) {
-
+        contractProductDao.deleteByPrimaryKey(id);
     }
 
     @Override

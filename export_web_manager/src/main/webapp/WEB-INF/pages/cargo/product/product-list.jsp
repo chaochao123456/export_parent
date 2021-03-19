@@ -39,7 +39,7 @@
         <!--订单信息-->
         <div class="panel panel-default">
             <div class="panel-heading">新增货物</div>
-            <form id="editForm" action="${ctx}/cargo/contractProduct/edit.do" method="post" enctype="multipart/form-data">
+            <form name="peopleForm" method="post"  method="post" class="form-horizontal" id="peopleForm" enctype="multipart/form-data">
                 <input type="hidden" name="contractId" value="${contractId}">
                 <input type="hidden" name="factoryName" id="factoryName" value="${contractProduct.factoryName}">
                 <div class="row data-type" style="margin: 0px">
@@ -110,7 +110,7 @@
 
         <!--工具栏-->
         <div class="box-tools text-center">
-            <button type="button" onclick='document.getElementById("editForm").submit()' class="btn bg-maroon">保存</button>
+            <button type="button" onclick='saveMoneyLaundering()' class="btn bg-maroon">保存</button>
             <button type="button" class="btn bg-default" onclick="history.back(-1);">返回</button>
         </div>
         <!--工具栏/-->
@@ -206,5 +206,27 @@
 </div>
 <!-- 内容区域 /-->
 </body>
+<script>
+    /*点击保存*/
+        function saveMoneyLaundering() {
+            var url = "<%=request.getContextPath() %>/cargo/contractProduct/edit.do";
+            $.ajax({
+                url: url,
+                data: $("#peopleForm").serialize(),
+                type: "post",
+                dataType : "text",
+                async: false,
+                success: function (data) {
+                    if (data=='1') {
+                        alert("保存成功");
+                        history.back(-1);
+                    } else {
+                        alert("保存失败");
+                        window.close();
+                    }
 
+                }
+            });
+        }
+</script>
 </html>

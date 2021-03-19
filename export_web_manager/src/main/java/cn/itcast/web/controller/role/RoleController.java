@@ -46,7 +46,6 @@ public class RoleController extends BaseController{
         }else{
             roleService.update(role);
         }
-
         //到查询
         return "redirect:/system/role/list.do";
     }

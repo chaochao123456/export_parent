@@ -6,7 +6,7 @@ import cn.itcast.domain.cargo.Factory;
 import cn.itcast.domain.cargo.FactoryExample;
 
 import java.util.List;
-import java.util.Map;
+
 
 /**
  */

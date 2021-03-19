@@ -18,7 +18,6 @@ public class ContractController extends BaseController {
     //模拟登陆用户的企业id和企业名称
     public String companyId;
     public String companyName;
-///cargo/contractProduct/list.do?
     @Reference
     private ContractService contractService;
     @RequestMapping(value = "/list",name = "合同查询")
