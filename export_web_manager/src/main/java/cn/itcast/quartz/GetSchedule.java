@@ -17,7 +17,7 @@ public class GetSchedule {
      private CompanyService companyService;
     @SuppressWarnings("unused")
     private void setSHGetSchedule() {
-        Company company = new Company();
+/*        Company company = new Company();
         company.setId(UUID.randomUUID().toString().replace("-",""));
         company.setName("companyId");
         company.setExpirationDate(new Date());
@@ -29,6 +29,7 @@ public class GetSchedule {
             companyService.save(company);
         } catch (Exception e) {
             logger.error("有问题"+e.getMessage());
-        }
+        }*/
+        logger.info("当前执行的是定时任务"+new Date().getTime());
     }
 }

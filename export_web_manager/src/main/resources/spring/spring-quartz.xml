@@ -18,13 +18,18 @@
 
 <bean id="jobDetail_getSHGetSchedule"
 	class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-	 <property name="targetObject" ref="getSHGetSchedule"/>
- 	<property name="targetMethod" value="setSHGetSchedule"/>
+	 <property name="targetObject" ref="getSHGetSchedule"/><!--至的是哪个类-->
+ 	<property name="targetMethod" value="setSHGetSchedule"/><!--指的是这个类下的这个方法要进行执行-->
 	<property name="concurrent" value="false" />
+	<!--在这个框架中防止任务并行可以有两种方法
+	如果是通过MethodlnvokingJobDertailFactoryBean在运行种动态生成的job  配置的xml 文件种有个concurrent属性
+	这个属性的功能能是配置此job是否可以进行并行 如果是false则是表示不可以进行滨兴  如果一个job 的业务处理发费的时间超过job 的启动的间隔
+	时间  这个时间就非常有用  如果是false  那么 在这种情况下  当前的job还在运行  那么下一个job只能延时运行   如果是true那就可以进行并行
+	-->
 </bean> 
-<bean id="jobDetailgetSHGetSchedules" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+<bean id="jobDetailgetSHGetSchedules" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"><!--这个是对哪个类进行执行-->
        	<property name="jobDetail" ref="jobDetail_getSHGetSchedule" />
-      	<property name="cronExpression" value="0 0/1 * * * ?"/>
+      	<property name="cronExpression" value="*/5 * * * * ?"/><!--要执行的时间-->
 </bean>
 	<!--  调度容器，如果将lazy-init='false'那么tomcat容器启动就会执行调度程序   -->
 	<bean id="startQuartz" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
