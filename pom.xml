@@ -115,7 +115,7 @@
             <version>1.2</version>
         </dependency>
 
-        <!-- Mybatis -->
+        <!-- Mybatis-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
